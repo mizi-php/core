@@ -1,0 +1,12 @@
+{
+    "name": "mizi/core",
+    "description": "Ferramentas básicas para a criação de uma aplicação MIZI",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "André Ricardo",
+            "email": "contatoadmx@gamil.com"
+        }
+    ],
+    "autoload": {}
+}

@@ -8,5 +8,19 @@
             "email": "contatoadmx@gamil.com"
         }
     ],
-    "autoload": {}
+    "autoload": {
+        "psr-4": {
+            "": "class/"
+        },
+        "files": [
+            "./source/helper/constant/is_terminal.php",
+            "./source/helper/function/env.php",
+            "./source/helper/function/is.php",
+            "./source/helper/function/path.php",
+            "./source/helper/function/prepare.php",
+            "./source/helper/function/json.php",
+            "./source/helper/function/str.php",
+            "./source/helper/script/env.php"
+        ]
+    }
 }

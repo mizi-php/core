@@ -14,11 +14,15 @@
         },
         "files": [
             "./source/helper/constant/is_terminal.php",
+            "./source/helper/constant/time.php",
+            "./source/helper/function/accent.php",
+            "./source/helper/function/dbug.php",
             "./source/helper/function/env.php",
             "./source/helper/function/is.php",
+            "./source/helper/function/json.php",
+            "./source/helper/function/num.php",
             "./source/helper/function/path.php",
             "./source/helper/function/prepare.php",
-            "./source/helper/function/json.php",
             "./source/helper/function/str.php",
             "./source/helper/script/env.php"
         ]

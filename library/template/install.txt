@@ -1,0 +1,20 @@
+<?php
+
+use Mizi\MxCmd;
+
+require "./vendor/autoload.php";
+
+echo "---< MXCMD >---\n\n";
+
+try {
+    array_shift($argv);
+    MxCmd::run(implode(' ', $argv));
+} catch (Exception | Error $e) {
+    MxCmd::show('ERROR');
+    MxCmd::show(' | [#]', $e->getMessage());
+    MxCmd::show(' | [#] ([#])', [$e->getFile(), $e->getLine()]);
+}
+
+echo "\n---< MXCMD >---\n";
+
+die;

@@ -26,5 +26,8 @@
             "./source/helper/function/str.php",
             "./source/helper/script/env.php"
         ]
+    },
+    "require": {
+        "ext-mbstring": "*"
     }
 }

@@ -1,0 +1,18 @@
+<?php
+
+require "./vendor/autoload.php";
+
+echo "---< MXCMD >---\n\n";
+
+try {
+    array_shift($argv);
+    Mizi\Terminal::run(implode(' ', $argv));
+} catch (Exception | Error $e) {
+    Mizi\Terminal::show('ERROR');
+    Mizi\Terminal::show(' | [#]', $e->getMessage());
+    Mizi\Terminal::show(' | [#] ([#])', [$e->getFile(), $e->getLine()]);
+}
+
+echo "\n---< MXCMD >---\n";
+
+die;

@@ -1,0 +1,13 @@
+[#PHP]
+
+namespace [#namespace];
+
+use Mizi\Terminal;
+
+abstract class [#class] extends Terminal
+{
+    protected static function execute()
+    {
+        Terminal::show('Comando [[#]] funcionando','[#name]');
+    }
+}

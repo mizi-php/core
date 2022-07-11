@@ -13,6 +13,7 @@
             "": "class/"
         },
         "files": [
+            "./source/helper/constant/is_terminal.php",
             "./source/helper/constant/time.php",
             "./source/helper/function/accent.php",
             "./source/helper/function/dbug.php",

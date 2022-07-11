@@ -42,7 +42,7 @@ abstract class MxCif extends Terminal
 
         File::create($fileName, $content, true);
 
-        Terminal::show('Certificado [[#green][#].crt[#white]] criado com sucesso.', $name);
-        Terminal::show('Adiciona [[#green]CIF_FILE=[#][#white]] em suas variaveis de ambiente para utiliza-lo', $name);
+        Terminal::show('Certificado [[#].crt] criado com sucesso.', $name);
+        Terminal::show('Adiciona [CIF_FILE=[#]] em suas variaveis de ambiente para utiliza-lo', $name);
     }
 }

@@ -38,17 +38,16 @@ abstract class Prepare
     {
         list($sequence, $reference) = self::separePrepareTypes($prepare);
 
-        $getPrepareReplace = function ($ref) use (&$sequence, &$reference) {
+        $getPrepareReplace = function ($ref, $bruteCommand) use (&$sequence, &$reference) {
             if (str_starts_with($ref, '#')) {
                 if ($ref == '#') {
-                    $ref = array_shift($sequence) ?? "[$ref]";
+                    $ref = array_shift($sequence) ?? '[#]';
                 } else {
-                    $ref = $reference[substr($ref, 1)] ?? "[$ref]";
+                    $ref = $reference[substr($ref, 1)] ?? "[$bruteCommand]";
                 }
             }
 
-            if (is_numeric($ref))
-                $ref = intval($ref);
+            if (is_numeric($ref)) $ref = intval($ref);
 
             return  match ($ref) {
                 'TRUE' => true,
@@ -61,7 +60,8 @@ abstract class Prepare
         foreach ($commands as $search) {
             if (strpos($string, $search) !== false) {
 
-                $command = substr($search, 1, -1);
+                $bruteCommand = substr($search, 1, -1);
+                $command = $bruteCommand;
                 $params = [];
 
                 if (strpos($command, ':') !== false) {
@@ -69,13 +69,19 @@ abstract class Prepare
                     $command = array_shift($params);
                     $params = implode(':', $params);
                     $params = explode(',', $params);
-                    $params = array_map(fn ($value) => $getPrepareReplace($value), $params);
+                    $params = array_map(
+                        fn ($value) => $getPrepareReplace($value, $bruteCommand),
+                        $params
+                    );
                 }
 
                 if (strpos($command, '?') !== false) {
                     $command = explode('?', $command);
                     $command = array_filter($command, fn ($value) => !is_blank($value));
-                    $command = array_map(fn ($value) => $getPrepareReplace($value), $command);
+                    $command = array_map(
+                        fn ($value) => $getPrepareReplace($value, $bruteCommand),
+                        $command
+                    );
 
                     $result = true;
                     while (count($command) && $result) {
@@ -93,7 +99,7 @@ abstract class Prepare
                     $command = $result ? $op1 : $op2;
                 }
 
-                $replace = $getPrepareReplace($command);
+                $replace = $getPrepareReplace($command, $bruteCommand);
 
                 if (is_callable($replace))
                     $replace = $replace(...$params);

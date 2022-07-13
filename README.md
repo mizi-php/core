@@ -14,7 +14,6 @@ Ferramentas básicas para a criação de uma aplicação MIZI
  - [_function](https://github.com/mizi-php/core/tree/main/.doc/_function.md)
  - [cif](https://github.com/mizi-php/core/tree/main/.doc/cif.md)
  - [code](https://github.com/mizi-php/core/tree/main/.doc/code.md)
- - [curl](https://github.com/mizi-php/core/tree/main/.doc/curl.md)
  - [dir](https://github.com/mizi-php/core/tree/main/.doc/dir.md)
  - [env](https://github.com/mizi-php/core/tree/main/.doc/env.md)
  - [file](https://github.com/mizi-php/core/tree/main/.doc/file.md)

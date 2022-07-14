@@ -33,7 +33,7 @@ abstract class MxStructure extends Terminal
         foreach (self::$structure as $dir) {
             if (!Dir::check($dir)) {
                 Dir::create($dir);
-                Terminal::show('Diretório [#] [#green]criado', [$dir]);
+                Terminal::show('Diretório [#]criado', [$dir]);
             }
         }
         Terminal::show('Estrutura de pastas criada');
@@ -45,7 +45,7 @@ abstract class MxStructure extends Terminal
             if (Dir::check($dir)) {
                 if (empty(Dir::seek_for_all($dir))) {
                     Dir::remove($dir);
-                    Terminal::show('Diretório [#] [#yellow]removido', [$dir]);
+                    Terminal::show('Diretório [#]removido', [$dir]);
                 }
             }
         }

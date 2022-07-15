@@ -87,7 +87,7 @@ abstract class Prepare
                     while (count($command) && $result) {
                         $check = array_shift($command);
 
-                        if (is_callable($check))
+                        if (is_closure($check))
                             $check = $check(...$params);
 
                         $result = $result && boolval($check);
@@ -101,7 +101,7 @@ abstract class Prepare
 
                 $replace = $getPrepareReplace($command, $bruteCommand);
 
-                if (is_callable($replace))
+                if (is_closure($replace))
                     $replace = $replace(...$params);
 
                 if (!is_null($replace))

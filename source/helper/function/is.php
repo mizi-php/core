@@ -110,3 +110,12 @@ if (!function_exists('is_json')) {
         }
     }
 }
+
+if (!function_exists('is_closure')) {
+
+    /** Verifica se uma variavel é uma função anonima ou objeto callable */
+    function is_closure(mixed $var): bool
+    {
+        return ($var instanceof Closure) || (is_object($var) && is_callable($var));
+    }
+}

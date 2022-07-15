@@ -57,6 +57,10 @@
 **is_json**: Verifica se uma string é um objeto JSON
 
     is_json(mixed $string): bool
+    
+**is_closure**: Verifica se uma variavel é uma função anonima ou objeto callable
+
+    is_closure(mixed $var): bool
 
 ---
 
